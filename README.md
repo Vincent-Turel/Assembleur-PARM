@@ -15,13 +15,11 @@ It has been developped in Java.
 
 ## How to execute
 
-To transform an assembly program in hexadecimal, you need to :
- - 
+1. Turn your C-file into a assembly file using Clang compiler
+Use the following command line : clang -S -target arm-none-eabi -mcpu=cortex-m0 -O0 -mfloat-abi=soft nomdufichier.c
 
-1.Transformer le fichier .c en fichier assembleur avec le compilateur Clang, on obtient un .s
-Commande à utiliser sur un terminal : clang -S -target arm-none-eabi -mcpu=cortex-m0 -O0 -mfloat-abi=soft nomdufichier.c
-2.Passer le fichier assembleur obtenu dans notre assembleur, pour cela, il faut :
-	-Télécharger notre assembleur .jar
-	-Déplacer le fichier .s à assembler au niveau de la racine de l'assembleur : Assembleur_PARM\ici
-	-En restant au même endroit, ouvrir le terminal et tapez la commande : java -jar target\Assembleur_PARM-1.0-SNAPSHOT.jar nomdufichier.s
-Vous obtiendrez au même endroit (Assembleur_PARM\ici) nomdufichier.bin, fichier qu'on peut charger dans logisim dans la ROM.
+2. Download our code 
+3. Drop your .s file in the root of the project (Assembleur_PARM\your_project.s)
+4. Open the terminal in this same root location et enter the following command line : java -jar target\Assembleur_PARM-1.0-SNAPSHOT.jar nomdufichier.s
+
+You'll get Assembleur_PARM\your_project.bin !
